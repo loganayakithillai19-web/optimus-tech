@@ -1,85 +1,175 @@
-
- .nav-links {
-    
-    gap: 1rem;
-  }
-.bg
-{
-    background-color:rgb(239, 246, 248) ;
- border: 2px solid;
- padding: 9px;
-}
-  
-    .nav img
-    {
-        top: 0px;
-        justify-content: center;
-    
-         /* margin-top: 0px;
-         margin-bottom: 0px; */
-         display: flex;
-        align-items: center;
-        position: relative;
-        font-style: italic;
-        font-size: 130%;
-        float: left;
-        border-radius: 50%;
-        
-    }
-    ul  {
-       margin-top: 0%;
-       top: 0%;
-     align-items: center;
-     justify-content: center;
-     list-style-type:none;
-     /* bottom:100%; */
-      position: relative;
-      display:flex;
-     padding-left:450px;
-     gap: 60px;
-     /* color: rgb(21, 219, 233); */
-     font-size: 20px;
-
-     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+html{
+  scroll-behavior: smooth; /* navbar click smooth scroll */
 }
 
-li
-{
-    text-align: center;
-    
-       
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
- /* a{
-    text-decoration: none;
-    color: rgb(120, 224, 238);
+/* BODY TOP SPACE */
+body {
+  /* padding-top: 80px; */
+  font-family: Arial, sans-serif;
+}
+
+
+.section{
+  min-height:100vh;
+  /* padding:10px 10px; */
+  background:#0c0c0c;
+  color:rgb(245, 242, 242);
+}
+/* animation default state */
+.animate{
+  opacity:0;
+  transform: translateY(40px);
+  transition: all 0.9s ease; /* 🔥 timing control */
+}
+
+/* animation active */
+.animate.show{
+  opacity:1;
+  transform: translateY(0);
+}
+/* LOGO */
+
+
+
+
+
+ /* .logo{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 12px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  cursor: pointer;
 } */
- a {
-  text-decoration: none;
+
+/* Logo Image */
+.logo img{
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;     /* round shape */
+  object-fit: cover;
+  border: 2px solid #e5a6c2;
+  transition: all 0.3s ease;
+}
+
+/* Hover effect */
+.logo-img:hover{
+  background: rgba(255, 59, 141, 0.15);
+  box-shadow: 0 0 15px rgba(255, 59, 141, 0.6);
+  transform: scale(1.05);
+}
+
+/* Image hover rotate (optional smooth) */
+.logo-img:hover img{
+  transform: rotate(5deg);
+}
+/* Logo text */
+/* .logo-span{
+  color: white;
+  font-size: 50px;
+  font-weight: bold;
+} */
+
+/* ===== NAVBAR ===== */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background: rgba(0,0,0,0.8);
+  backdrop-filter: blur(10px);
+  padding: 12px 0;
+  display: flex;
   position: relative;
-  transition: 0.4s;
-  
-       color: rgb(219, 122, 175);
 }
 
-a::before {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 4px;
-  top: 25px;
-  bottom:0;
-  left: 50%;
-  background-color: #4312c7;
-  transition: all 0.4s;
-  border-radius: 40%;
-}
-
-.nav a:hover::before {
+/* ✅ FULL WIDTH FLEX */
+.nav-container {
   width: 100%;
-  left: 0;
-  
-  background-color: #ec12bd; 
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ===== LOGO LEFT ===== */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
+  font-weight: bold;
+}
+
+.logo img {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+}
+
+/* ===== MENU DESKTOP ===== */
+.nav-menu {
+  /* list-style: none; */
+  display: flex;
+  gap: 40px;
+  margin-left: auto;
+}
+
+.nav-menu a {
+  color: white;
+  text-decoration: none;
+  font-size: 30px;
+}
+
+/* ===== HAMBURGER ===== */
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  color: white;
+  cursor: pointer;
+  z-index: 1001;
+  position: relative;
+
+}
+@media (max-width: 768px) {
+
+  .menu-toggle {
+    display: block;
+    margin-left: auto;
+  }
+
+  .nav-menu {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 100%;
+    background: #111;
+    flex-direction: column;
+    text-align: center;
+    display:none; /* 👈 hidden */
+    padding: 20px 0;
+  }
+    /* top: 64px;
+    right: 100%;
+    width: 220px;
+    height: calc(100vh - 64px);
+    background: rgba(0,0,0,0.95);
+    flex-direction: column;
+    gap: 24px;
+    padding: 30px 20px;
+    transition: right 0.35s ease;
+  } */
+
+  .nav-menu.active {
+    right: 0;
+    display: flex;
+  }
 }
 
     .course h2{
@@ -87,7 +177,7 @@ a::before {
         color: black;
         background-color: cadetblue;
         
-        margin-left: 500px;
+        margin-left: 900px;
         width: 20%;
         border-radius: 20%;
         font-size: 40px;
