@@ -301,9 +301,9 @@ body {
 
 @media screen and (max-width:768px) {
   .carousel-caption p {
-    bottom: 0px;
+    top: 10px;
     /* line-height: 1.1; */
-    font-size: 15px;
+    font-size: 13px;
   }
   .carousel-indicators
   {
